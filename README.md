@@ -1,4 +1,4 @@
-a really simple particle system
+a TUIO touch particle system
 ===============================
 @author @fabiantheblind  
 written for block seminar @FHP Werkstattpraxis 14W4D-IL Interface-Labor WS 2013/2014  
