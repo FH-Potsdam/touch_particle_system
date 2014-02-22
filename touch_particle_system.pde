@@ -66,6 +66,8 @@ void draw() {
   tuio_draw();
 }
 
+// within the tuio_draw method we retrieve a Vector (List) of TuioObject and TuioCursor (polling)
+// from the TuioProcessing client and then loop over both lists to draw the graphical feedback.
 void tuio_draw(){
 
 
