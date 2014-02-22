@@ -5,27 +5,29 @@
  *
  * Copyright (c)  2014
  * Fabian "fabiantheblind" Morón Zirfas
- * Permission is hereby granted, free of charge, to any
- * person obtaining a copy of this software and associated
- * documentation files (the "Software"), to deal in the Software
- * without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense,
- * and/or sell copies of the Software, and to  permit persons to
- * whom the Software is furnished to do so, subject to
- * the following conditions:
- * The above copyright notice and this permission notice
- * shall be included in all copies or substantial portions of the Software.
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
- * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
- * IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
- * DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF  CONTRACT,
- * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTIO
- * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
- * see also http://www.opensource.org/licenses/mit-license.php
  *
- */
+ * TUIO integration based on
+ *
+ * TUIO processing demo - part of the reacTIVision project
+ * http://reactivision.sourceforge.net/
+ *
+ * Copyright (c) 2005-2009 Martin Kaltenbrunner <mkalten@iua.upf.edu>
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+*/
 
 // we need to import the TUIO library
 // and declare a TuioProcessing client variable
@@ -41,6 +43,7 @@ float cursor_size = 15;
 float object_size = 60;
 float table_size = 760;
 float scale_factor = 1;
+
 /**
  * Setup executed once
  */
@@ -65,6 +68,8 @@ void draw() {
   tuio_draw();
 }
 
+// within the tuio_draw method we retrieve a Vector (List) of TuioObject and TuioCursor (polling)
+// from the TuioProcessing client and then loop over both lists to draw the graphical feedback.
 void tuio_draw(){
 
 
@@ -82,7 +87,6 @@ void tuio_draw(){
      rect(-obj_size/2,-obj_size/2,obj_size,obj_size);
      popMatrix();
      fill(255);
-     // text(""+tobj.getSymbolID(), tobj.getScreenX(width), tobj.getScreenY(height));
    }
 
    Vector tuioCursorList = tuioClient.getTuioCursors();
@@ -102,8 +106,6 @@ void tuio_draw(){
         stroke(192,192,192);
         fill(192,192,192);
         ellipse( tcur.getScreenX(width), tcur.getScreenY(height),cur_size,cur_size);
-        fill(0);
-        // text(""+ tcur.getCursorID(),  tcur.getScreenX(width)-5,  tcur.getScreenY(height)+5);
       }
    }
 
