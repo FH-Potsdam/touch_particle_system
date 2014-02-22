@@ -41,6 +41,7 @@ float cursor_size = 15;
 float object_size = 60;
 float table_size = 760;
 float scale_factor = 1;
+
 /**
  * Setup executed once
  */
@@ -82,7 +83,6 @@ void tuio_draw(){
      rect(-obj_size/2,-obj_size/2,obj_size,obj_size);
      popMatrix();
      fill(255);
-     // text(""+tobj.getSymbolID(), tobj.getScreenX(width), tobj.getScreenY(height));
    }
 
    Vector tuioCursorList = tuioClient.getTuioCursors();
@@ -102,8 +102,6 @@ void tuio_draw(){
         stroke(192,192,192);
         fill(192,192,192);
         ellipse( tcur.getScreenX(width), tcur.getScreenY(height),cur_size,cur_size);
-        fill(0);
-        // text(""+ tcur.getCursorID(),  tcur.getScreenX(width)-5,  tcur.getScreenY(height)+5);
       }
    }
 
